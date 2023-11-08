@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="fr.leboncoin.albumreader.presentation.ui.HomeFragment"
+        android:label="HomeFragment" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_albumFragment"
+            app:destination="@id/albumFragment">
+
+            <argument
+                android:name="albumId"
+                app:argType="integer" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="fr.leboncoin.albumreader.presentation.ui.AlbumFragment"
+        android:label="AlbumFragment">
+
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_albumFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment">
+
+            <argument
+                android:name="pictureId"
+                app:argType="integer" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/pictureFragment"
+        android:name="fr.leboncoin.albumreader.presentation.ui.PictureFragment"
+        android:label="PictureFragment">
+
+        <argument
+            android:name="pictureId"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "fr.leboncoin.albumreader"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "fr.leboncoin.albumreader"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Album Reader</string>
+    <string name="home_title">My albums</string>
 </resources>

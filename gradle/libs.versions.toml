@@ -5,9 +5,11 @@ kotlin = "1.9.10"
 kotlinx-coroutines = "1.7.3"
 hilt = "2.47"
 androidx-lifecycleVersion = "2.5.1"
+androidx-navigation = "2.7.5"
 androidx-hilt = "1.0.0"
 androidx-datastore = "1.0.0"
 mockito = "3.11.2"
+coil = "2.2.2"
 
 [libraries]
 # ----------------------------------------
@@ -17,6 +19,7 @@ plugin-android = "com.android.tools.build:gradle:8.1.2"
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-unMock = "com.github.bjoernq:unmockplugin:0.7.9"
 plugin-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+plugin-navigationSafeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation" }
 
 # ----------------------------------------
 # AndroidX dependencies
@@ -31,6 +34,9 @@ androidx-datastore = { module = "androidx.datastore:datastore-preferences", vers
 androidx-lifecycle-viewModel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycleVersion" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycleVersion" }
 androidx-lifecycle-runtime-testing = { module = "androidx.lifecycle:lifecycle-runtime-testing", version.ref = "androidx-lifecycleVersion" }
+
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation" }
 
 # Expose `viewModels()` & `activityViewModels()`.
 androidx-activity-ktx = "androidx.activity:activity-ktx:1.5.1" # Version 1.6.x requires `compileSdkVersion ≥ 33`
@@ -63,6 +69,12 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-rx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+
+# ----------------------------------------
+# Coil: Image loading library for Android backed by Kotlin Coroutines — https://coil-kt.github.io/coil/
+# ----------------------------------------
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
 
 # ----------------------------------------
 # Others
