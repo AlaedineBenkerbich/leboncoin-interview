@@ -8,9 +8,10 @@ buildscript {
 
     dependencies {
         classpath(libs.plugin.android)
-        classpath(libs.plugin.kotlin)
-        classpath(libs.plugin.unMock)
         classpath(libs.plugin.hilt)
+        classpath(libs.plugin.kotlin)
+        classpath(libs.plugin.kotlinSerialization)
         classpath(libs.plugin.navigationSafeArgs)
+        classpath(libs.plugin.unMock)
     }
 }

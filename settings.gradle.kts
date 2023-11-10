@@ -15,5 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Album Reader"
 include(":app")
+include(":datasource:api")
 include(":presentation")
  
