@@ -1,6 +1,6 @@
 package fr.leboncoin.albumreader.domain.repository
 
-import fr.leboncoin.albumreader.domain.model.Picture
+import fr.leboncoin.albumreader.domain.model.PictureData
 import kotlinx.coroutines.flow.Flow
 
 interface PicturesRepository {
@@ -9,7 +9,7 @@ interface PicturesRepository {
 
     sealed interface FetchResult {
         data object Progress : FetchResult
-        data class Success(val pictures: List<Picture>) : FetchResult
+        data class Success(val pictures: List<PictureData>) : FetchResult
         data object Error : FetchResult
     }
 }

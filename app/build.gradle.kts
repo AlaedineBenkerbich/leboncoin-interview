@@ -39,6 +39,8 @@ android {
 
 dependencies {
     implementation(project(":common:core"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
     implementation(project(":presentation"))
 
     implementation(libs.google.hilt.android)

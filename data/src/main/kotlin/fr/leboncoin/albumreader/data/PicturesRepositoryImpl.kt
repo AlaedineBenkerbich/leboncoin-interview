@@ -3,7 +3,7 @@ package fr.leboncoin.albumreader.data
 import fr.leboncoin.albumreader.api.Api
 import fr.leboncoin.albumreader.api.RemotePicture
 import fr.leboncoin.albumreader.common.core.DefaultDispatcher
-import fr.leboncoin.albumreader.domain.model.Picture
+import fr.leboncoin.albumreader.domain.model.PictureData
 import fr.leboncoin.albumreader.domain.repository.PicturesRepository
 import fr.leboncoin.albumreader.domain.repository.PicturesRepository.FetchResult
 import kotlinx.coroutines.CoroutineDispatcher
@@ -37,8 +37,8 @@ class PicturesRepositoryImpl @Inject constructor(
     private fun List<RemotePicture>.toResult(): FetchResult =
         FetchResult.Success(pictures = map { picture -> picture.toDomain() })
 
-    private fun RemotePicture.toDomain(): Picture =
-        Picture(
+    private fun RemotePicture.toDomain(): PictureData =
+        PictureData(
             id = id,
             albumId = albumId,
             title = title,

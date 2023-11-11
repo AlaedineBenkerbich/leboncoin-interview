@@ -1,6 +1,6 @@
 package fr.leboncoin.albumreader.domain.model
 
-data class Picture(
+data class Album(
     val id: Int,
     val thumbnailUrl: String
 )

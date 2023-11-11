@@ -1,4 +1,4 @@
-package fr.leboncoin.albumreader.di
+package fr.leboncoin.albumreader.common.di
 
 import dagger.Binds
 import dagger.Module
