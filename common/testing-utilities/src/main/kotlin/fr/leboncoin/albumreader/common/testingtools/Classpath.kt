@@ -1,4 +1,4 @@
-package fr.leboncoin.albumreader.api
+package fr.leboncoin.albumreader.common.testingtools
 
 import java.nio.charset.Charset
 

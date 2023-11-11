@@ -14,6 +14,8 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.retrofit.converter.kotlinSerialization)
 
+    testImplementation(project(":common:testing-utilities"))
+
     testImplementation(libs.testing.junit)
     testImplementation(libs.testing.mockk)
     testImplementation(libs.testing.mockWebServer)
