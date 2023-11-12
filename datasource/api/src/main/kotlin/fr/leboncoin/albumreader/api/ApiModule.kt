@@ -19,7 +19,7 @@ internal object ApiModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        return retrofit.create(Api::class.java).let(::FakeApi)
+        return retrofit.create(Api::class.java)
     }
 }
 

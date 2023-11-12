@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lecteur d\'album</string>
+    <string name="error_message_generic">Une erreur est survenue. Veuillez essayer à nouveau.</string>
     <string name="home_title">Mes albums</string>
 </resources>

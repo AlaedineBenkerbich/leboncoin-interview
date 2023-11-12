@@ -4,17 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 import fr.leboncoin.albumreader.presentation.databinding.FragmentAlbumBinding
-import fr.leboncoin.albumreader.presentation.model.ItemUiModel
+import fr.leboncoin.albumreader.presentation.model.AlbumUiState
+import fr.leboncoin.albumreader.presentation.viewmodel.AlbumViewModel
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 internal class AlbumFragment : Fragment() {
 
     private val args: AlbumFragmentArgs by navArgs()
+
+    private val albumViewModel: AlbumViewModel by activityViewModels()
 
     private var _viewBinding: FragmentAlbumBinding? = null
     private val viewBinding get() = _viewBinding!!
@@ -32,9 +44,20 @@ internal class AlbumFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    albumViewModel.state.collect(::onStateChanged)
+                }
+                launch {
+                    albumViewModel.pictureSelectionState.collect(::onPictureSelection)
+                }
+            }
+        }
+
         viewBinding.albumPictures.setUpRecyclerView()
 
-        adapter.submitList(getPictures(args.albumId))
+        albumViewModel.getAlbumPictures(albumId = args.albumId)
     }
 
     override fun onDestroyView() {
@@ -42,43 +65,29 @@ internal class AlbumFragment : Fragment() {
         _viewBinding = null
     }
 
-    private fun getPictures(albumId: Int): List<ItemUiModel> {
-        val onPictureSelection: (Int) -> Unit = { pictureId ->
-            val action = AlbumFragmentDirections.actionAlbumFragmentToPictureFragment(pictureId = pictureId)
-            findNavController().navigate(action)
+    private fun onStateChanged(state: AlbumUiState) {
+        when (state) {
+            is AlbumUiState.Loading -> viewBinding.apply {
+                albumPictures.isVisible = false
+                albumLoader.isVisible = true
+            }
+            is AlbumUiState.Error -> {
+                viewBinding.albumLoader.isVisible = false
+                Toast.makeText(context, state.errorMessageResId, Toast.LENGTH_SHORT).show()
+            }
+            is AlbumUiState.Success -> {
+                adapter.submitList(state.pictures)
+                viewBinding.apply {
+                    albumPictures.isVisible = true
+                    albumLoader.isVisible = false
+                }
+            }
         }
-        return listOf(
-            ItemUiModel(
-                id = 1,
-                thumbnailUrl = "https://via.placeholder.com/150/92c952",
-                onSelection = onPictureSelection
-            ),
-            ItemUiModel(
-                id = 2,
-                thumbnailUrl = "https://via.placeholder.com/150/771796",
-                onSelection = onPictureSelection
-            ),
-            ItemUiModel(
-                id = 3,
-                thumbnailUrl = "https://via.placeholder.com/150/24f355",
-                onSelection = onPictureSelection
-            ),
-            ItemUiModel(
-                id = 4,
-                thumbnailUrl = "https://via.placeholder.com/150/d32776",
-                onSelection = onPictureSelection
-            ),
-            ItemUiModel(
-                id = 5,
-                thumbnailUrl = "https://via.placeholder.com/150/f66b97",
-                onSelection = onPictureSelection
-            ),
-            ItemUiModel(
-                id = 6,
-                thumbnailUrl = "https://via.placeholder.com/150/f66b97",
-                onSelection = onPictureSelection
-            )
-        )
+    }
+
+    private fun onPictureSelection(pictureId: Int) {
+        val action = AlbumFragmentDirections.actionAlbumFragmentToPictureFragment(pictureId = pictureId)
+        findNavController().navigate(action)
     }
 
     private fun RecyclerView.setUpRecyclerView() {
