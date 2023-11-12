@@ -1,9 +1,6 @@
-package fr.leboncoin.albumreader.api
+package fr.leboncoin.albumreader.data.api
 
-import kotlinx.serialization.SerializationException
-import retrofit2.HttpException
 import retrofit2.http.GET
-import java.io.IOException
 
 /**
  * API routes

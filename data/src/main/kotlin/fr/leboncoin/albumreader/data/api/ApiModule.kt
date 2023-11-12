@@ -1,4 +1,4 @@
-package fr.leboncoin.albumreader.api
+package fr.leboncoin.albumreader.data.api
 
 import dagger.Module
 import dagger.Provides

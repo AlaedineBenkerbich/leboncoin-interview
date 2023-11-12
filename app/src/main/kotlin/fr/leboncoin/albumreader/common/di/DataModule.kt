@@ -4,7 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import fr.leboncoin.albumreader.data.PicturesRepositoryImpl
+import fr.leboncoin.albumreader.data.repository.PicturesRepositoryImpl
 import fr.leboncoin.albumreader.domain.repository.PicturesRepository
 
 @Module

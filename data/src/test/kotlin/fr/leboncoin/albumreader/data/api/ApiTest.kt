@@ -1,4 +1,4 @@
-package fr.leboncoin.albumreader.api
+package fr.leboncoin.albumreader.data.api
 
 import fr.leboncoin.albumreader.common.testingtools.Classpath
 import kotlinx.coroutines.test.runTest
@@ -38,7 +38,7 @@ class ApiTest {
             mockWebServer.enqueue(
                 MockResponse()
                     .setResponseCode(HttpURLConnection.HTTP_OK)
-                    .setBody(Classpath.resourceText("get-pictures-200-complete.json"))
+                    .setBody(Classpath.resourceText("api/get-pictures-200-complete.json"))
             )
 
             // When
@@ -61,7 +61,7 @@ class ApiTest {
         mockWebServer.enqueue(
             MockResponse()
                 .setResponseCode(HttpURLConnection.HTTP_NOT_FOUND)
-                .setBody(Classpath.resourceText("404.json"))
+                .setBody(Classpath.resourceText("api/404.json"))
         )
 
         // When
@@ -83,7 +83,7 @@ class ApiTest {
             mockWebServer.enqueue(
                 MockResponse()
                     .setResponseCode(HttpURLConnection.HTTP_OK)
-                    .setBody(Classpath.resourceText("get-pictures-200-without-pictures.json"))
+                    .setBody(Classpath.resourceText("api/get-pictures-200-without-pictures.json"))
             )
 
             // When
@@ -103,7 +103,7 @@ class ApiTest {
             mockWebServer.enqueue(
                 MockResponse()
                     .setResponseCode(HttpURLConnection.HTTP_OK)
-                    .setBody(Classpath.resourceText("get-pictures-200-complete.json"))
+                    .setBody(Classpath.resourceText("api/get-pictures-200-complete.json"))
             )
 
             // When

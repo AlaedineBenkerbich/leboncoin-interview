@@ -1,4 +1,4 @@
-package fr.leboncoin.albumreader.api
+package fr.leboncoin.albumreader.data.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

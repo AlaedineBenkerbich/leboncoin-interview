@@ -1,7 +1,8 @@
-package fr.leboncoin.albumreader.data
+package fr.leboncoin.albumreader.data.repository
 
-import fr.leboncoin.albumreader.api.Api
-import fr.leboncoin.albumreader.api.RemotePicture
+import fr.leboncoin.albumreader.data.api.Api
+import fr.leboncoin.albumreader.data.api.RemotePicture
+import fr.leboncoin.albumreader.data.repository.PicturesRepositoryImpl
 import fr.leboncoin.albumreader.domain.model.PictureData
 import fr.leboncoin.albumreader.domain.repository.PicturesRepository.FetchResult
 import io.mockk.coEvery
