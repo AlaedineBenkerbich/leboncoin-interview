@@ -11,6 +11,7 @@ buildscript {
         classpath(libs.plugin.hilt)
         classpath(libs.plugin.kotlin)
         classpath(libs.plugin.kotlinSerialization)
+        classpath(libs.plugin.ksp)
         classpath(libs.plugin.navigationSafeArgs)
         classpath(libs.plugin.unMock)
     }

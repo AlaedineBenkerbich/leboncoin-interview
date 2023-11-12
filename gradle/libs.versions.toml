@@ -2,6 +2,7 @@
 
 [versions]
 kotlin = "1.9.10"
+ksp = "1.9.10-1.0.13"
 kotlinx-coroutines = "1.7.3"
 kotlinx-serialization = "1.5.1"
 hilt = "2.47"
@@ -11,6 +12,7 @@ androidx-hilt = "1.0.0"
 androidx-datastore = "1.0.0"
 mockito = "3.11.2"
 retrofit = "2.9.0"
+room = "2.6.0"
 okHttp = "4.9.2"
 coil = "2.2.2"
 
@@ -21,6 +23,7 @@ coil = "2.2.2"
 plugin-android = "com.android.tools.build:gradle:8.1.3"
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlinSerialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 plugin-unMock = "com.github.bjoernq:unmockplugin:0.7.9"
 plugin-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 plugin-navigationSafeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation" }
@@ -82,6 +85,13 @@ kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 retrofit-converter-kotlinSerialization = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
+
+# ----------------------------------------
+# Room dependencies
+# ----------------------------------------
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 
 # ----------------------------------------
 # Coil: Image loading library for Android backed by Kotlin Coroutines — https://coil-kt.github.io/coil/
